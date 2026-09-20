@@ -3,998 +3,643 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Zieh-Los.de – Gewinnspiele</title>
-
   <style>
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
-
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: #080b20;
-      color: white;
-      min-height: 100vh;
+      background: #f5f7fb;
+      color: #172033;
+      line-height: 1.5;
     }
-
     header {
+      background: #ffffff;
+      border-bottom: 1px solid #e5e7eb;
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(8, 11, 32, 0.96);
-      border-bottom: 1px solid rgba(255,255,255,.1);
-      padding: 18px 6%;
+      z-index: 1000;
+    }
+    .nav {
+      max-width: 1200px;
+      margin: auto;
+      padding: 16px 20px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 20px;
     }
-
     .logo {
       font-size: 24px;
       font-weight: 800;
-      color: #8b7cff;
+      color: #111827;
+      text-decoration: none;
     }
-
-    nav {
+    .logo span {
+      color: #2563eb;
+    }
+    .nav-buttons {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
     }
-
     button {
-      border: 0;
+      border: none;
       border-radius: 10px;
-      padding: 11px 16px;
+      padding: 11px 17px;
+      font-size: 15px;
+      font-weight: 700;
       cursor: pointer;
-      font-weight: bold;
     }
-
-    .btn {
-      background: #7467ff;
+    .btn-primary {
+      background: #2563eb;
       color: white;
     }
-
-    .btn:hover {
-      background: #8d82ff;
+    .btn-primary:hover {
+      background: #1d4ed8;
     }
-
     .btn-secondary {
-      background: rgba(255,255,255,.1);
-      color: white;
+      background: #e5e7eb;
+      color: #111827;
     }
-
+    .btn-secondary:hover {
+      background: #d1d5db;
+    }
     .hero {
       max-width: 1200px;
-      margin: auto;
-      padding: 60px 6%;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: center;
+      margin: 30px auto;
+      padding: 20px;
     }
-
-    .hero h1 {
-      font-size: clamp(38px, 6vw, 70px);
-      line-height: 1;
-      margin-bottom: 20px;
-    }
-
-    .hero h1 span {
-      color: #8b7cff;
-    }
-
-    .hero p {
-      color: #b8bdd8;
-      font-size: 18px;
-      line-height: 1.6;
-      margin-bottom: 25px;
-    }
-
-    .hero-img {
-      width: 100%;
-      max-height: 430px;
-      object-fit: cover;
-      border-radius: 25px;
-      box-shadow: 0 25px 70px rgba(0,0,0,.5);
-    }
-
-    section {
-      max-width: 1200px;
-      margin: auto;
-      padding: 40px 6%;
-    }
-
-    .section-title {
-      font-size: 34px;
-      margin-bottom: 25px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-    }
-
-    .card {
-      background: #111631;
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 18px;
+    .hero-box {
+      background: white;
+      border-radius: 22px;
       overflow: hidden;
-      box-shadow: 0 10px 35px rgba(0,0,0,.25);
+      box-shadow: 0 10px 35px rgba(0,0,0,0.08);
     }
-
-    .card img {
+    .hero-image {
       width: 100%;
-      height: 210px;
+      height: 430px;
       object-fit: cover;
       display: block;
     }
-
+    .hero-content {
+      padding: 35px;
+      text-align: center;
+    }
+    .hero-content h1 {
+      font-size: clamp(32px, 5vw, 58px);
+      margin-bottom: 12px;
+    }
+    .hero-content p {
+      color: #64748b;
+      font-size: 18px;
+      max-width: 700px;
+      margin: auto;
+    }
+    .section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .section-title h2 {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+    .section-title p {
+      color: #64748b;
+    }
+    .contest-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+    .card {
+      background: white;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.07);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 14px 35px rgba(0,0,0,0.12);
+    }
+    .card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
     .card-content {
       padding: 20px;
     }
-
-    .card h3 {
-      margin-bottom: 10px;
-      font-size: 21px;
+    .card-content h3 {
+      font-size: 22px;
+      margin-bottom: 8px;
     }
-
-    .card p {
-      color: #aeb4d0;
-      line-height: 1.5;
-      margin-bottom: 15px;
+    .card-content p {
+      color: #64748b;
+      margin-bottom: 16px;
     }
-
-    .price {
-      color: #8b7cff;
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 15px;
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
     }
-
     .badge {
       display: inline-block;
+      background: #dbeafe;
+      color: #1d4ed8;
       padding: 6px 10px;
-      background: rgba(116,103,255,.15);
-      color: #a59cff;
-      border-radius: 8px;
+      border-radius: 999px;
       font-size: 13px;
-      margin-bottom: 12px;
+      font-weight: 700;
     }
-
     .faq {
-      display: grid;
-      gap: 12px;
+      max-width: 900px;
+      margin: auto;
     }
-
     details {
-      background: #111631;
-      padding: 18px;
+      background: white;
+      margin-bottom: 12px;
+      padding: 18px 20px;
       border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     }
-
     summary {
       cursor: pointer;
-      font-weight: bold;
+      font-weight: 700;
     }
-
     details p {
-      color: #b8bdd8;
-      line-height: 1.6;
-      padding-top: 12px;
+      margin-top: 12px;
+      color: #64748b;
     }
-
     footer {
       margin-top: 50px;
-      padding: 35px 6%;
+      background: #111827;
+      color: white;
+      padding: 35px 20px;
       text-align: center;
-      color: #8f95b5;
-      border-top: 1px solid rgba(255,255,255,.08);
     }
-
+    footer p {
+      color: #cbd5e1;
+    }
     .modal {
       display: none;
       position: fixed;
       inset: 0;
-      z-index: 999;
-      background: rgba(0,0,0,.75);
+      background: rgba(0,0,0,0.6);
+      z-index: 2000;
       align-items: center;
       justify-content: center;
       padding: 20px;
     }
-
     .modal.active {
       display: flex;
     }
-
     .modal-box {
+      background: white;
       width: 100%;
-      max-width: 480px;
-      background: #111631;
-      border-radius: 20px;
+      max-width: 430px;
+      border-radius: 18px;
       padding: 28px;
       position: relative;
-      box-shadow: 0 25px 80px rgba(0,0,0,.5);
     }
-
     .close {
       position: absolute;
-      top: 12px;
-      right: 15px;
+      right: 18px;
+      top: 14px;
       background: transparent;
-      color: white;
       font-size: 25px;
+      padding: 5px;
     }
-
-    input {
-      width: 100%;
-      padding: 13px;
-      margin: 8px 0;
-      border: 1px solid rgba(255,255,255,.12);
-      border-radius: 10px;
-      background: #080b20;
-      color: white;
-    }
-
     .modal-box h2 {
+      margin-bottom: 20px;
+    }
+    .form-group {
       margin-bottom: 15px;
     }
-
-    .modal-box button {
-      width: 100%;
-      margin-top: 10px;
+    .form-group label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 700;
     }
-
-    #toast {
-      position: fixed;
-      right: 20px;
-      bottom: 20px;
-      z-index: 2000;
-      background: #151a38;
-      border: 1px solid rgba(255,255,255,.1);
-      color: white;
-      padding: 15px 18px;
-      border-radius: 12px;
+    .form-group input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d1d5db;
+      border-radius: 9px;
+      font-size: 15px;
+    }
+    .form-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .form-actions button {
+      flex: 1;
+    }
+    .message {
+      margin-top: 15px;
+      padding: 10px;
+      border-radius: 8px;
+      background: #f1f5f9;
       display: none;
     }
-
-    @media (max-width: 850px) {
-      .hero {
-        grid-template-columns: 1fr;
+    @media (max-width: 900px) {
+      .contest-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
-
-      .grid {
-        grid-template-columns: 1fr 1fr;
+      .hero-image {
+        height: 330px;
       }
     }
-
-    @media (max-width: 550px) {
-      header {
-        align-items: flex-start;
-        gap: 15px;
+    @media (max-width: 600px) {
+      .nav {
         flex-direction: column;
       }
-
-      .grid {
+      .contest-grid {
         grid-template-columns: 1fr;
       }
-
-      .hero {
-        padding-top: 35px;
+      .hero-image {
+        height: 240px;
+      }
+      .hero-content {
+        padding: 25px 18px;
       }
     }
   </style>
 </head>
-
 <body>
-
 <header>
-
-  <div class="logo">
-    Zieh-Los.de
-  </div>
-
-  <nav>
-    <button
-      class="btn-secondary"
-      onclick="showSection('gewinnspiele')">
-      Gewinnspiele
-    </button>
-
-    <button
-      class="btn-secondary"
-      onclick="showSection('faq')">
-      FAQ
-    </button>
-
-    <button
-      class="btn"
-      onclick="openLogin()">
-      Anmelden
-    </button>
-  </nav>
-
-</header>
-
-
-<main>
-
-  <!-- HERO -->
-
-  <section class="hero">
-
-    <div>
-
-      <div class="badge">
-        🎁 Große Gewinnspiele
-      </div>
-
-      <h1>
-        Dein Glück.<br>
-        <span>Dein Gewinn.</span>
-      </h1>
-
-      <p>
-        Nimm an unseren Gewinnspielen teil und sichere dir
-        die Chance auf hochwertige Preise.
-      </p>
-
-      <button
-        class="btn"
-        onclick="showSection('gewinnspiele')">
-        Gewinnspiele ansehen
+  <nav class="nav">
+    <a href="#" class="logo">Zieh<span>-Los.de</span></a>
+    <div class="nav-buttons">
+      <button class="btn-secondary" onclick="openModal('loginModal')">
+        Anmelden
       </button>
-
+      <button class="btn-primary" onclick="openModal('registerModal')">
+        Registrieren
+      </button>
     </div>
-
-    <div>
-
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div class="hero-box">
       <img
-        class="hero-img"
         src="Assets/hero-phone.jpg"
-        alt="Premium Smartphone Gewinn">
-
+        alt="Gewinnspiel"
+        class="hero-image"
+      >
+      <div class="hero-content">
+        <h1>🎁 Gewinne tolle Preise!</h1>
+        <p>
+          Mach mit bei unseren kostenlosen Gewinnspielen
+          und sichere dir die Chance auf hochwertige Preise.
+        </p>
+      </div>
     </div>
-
   </section>
-
-
-  <!-- GEWINNSPIELE -->
-
-  <section id="gewinnspiele">
-
-    <h2 class="section-title">
-      Aktuelle Gewinnspiele
-    </h2>
-
-    <div
-      class="grid"
-      id="contestGrid">
+  <section class="section">
+    <div class="section-title">
+      <h2>Aktuelle Gewinnspiele</h2>
+      <p>Wähle dein Lieblings-Gewinnspiel und mach mit.</p>
     </div>
-
-  </section>
-
-
-  <!-- FAQ -->
-
-  <section id="faq">
-
-    <h2 class="section-title">
-      Häufige Fragen
-    </h2>
-
-    <div class="faq">
-
-      <details>
-
-        <summary>
-          Wie kann ich teilnehmen?
-        </summary>
-
-        <p>
-          Wähle ein Gewinnspiel aus und klicke auf
-          „Jetzt teilnehmen“. Anschließend kannst du
-          deine Teilnahme bestätigen.
-        </p>
-
-      </details>
-
-
-      <details>
-
-        <summary>
-          Ist die Teilnahme kostenlos?
-        </summary>
-
-        <p>
-          Die Teilnahme an den dargestellten
-          Gewinnspielen ist kostenlos.
-        </p>
-
-      </details>
-
-
-      <details>
-
-        <summary>
-          Wie erfahre ich, ob ich gewonnen habe?
-        </summary>
-
-        <p>
-          Die Gewinner können nach Ablauf des jeweiligen
-          Gewinnspiels bekannt gegeben werden.
-        </p>
-
-      </details>
-
-
-      <details>
-
-        <summary>
-          Kann ich mehrfach teilnehmen?
-        </summary>
-
-        <p>
-          Pro Gewinnspiel wird in dieser Version nur
-          eine Teilnahme pro Browser gespeichert.
-        </p>
-
-      </details>
-
-    </div>
-
-  </section>
-
-</main>
-
-
-<footer>
-
-  © 2026 Zieh-Los.de – Gewinnspiel-Demo
-
-</footer>
-
-
-<!-- LOGIN -->
-
-<div
-  id="loginModal"
-  class="modal">
-
-  <div class="modal-box">
-
-    <button
-      class="close"
-      onclick="closeLogin()">
-      ×
-    </button>
-
-    <h2>
-      Anmelden
-    </h2>
-
-    <input
-      type="email"
-      id="email"
-      placeholder="E-Mail-Adresse">
-
-    <input
-      type="password"
-      id="password"
-      placeholder="Passwort">
-
-    <button
-      class="btn"
-      onclick="login()">
-      Anmelden
-    </button>
-
-    <button
-      class="btn-secondary"
-      onclick="register()">
-      Konto erstellen
-    </button>
-
-  </div>
-
-</div>
-
-
-<!-- TEILNAHME -->
-
-<div
-  id="participateModal"
-  class="modal">
-
-  <div class="modal-box">
-
-    <button
-      class="close"
-      onclick="closeParticipate()">
-      ×
-    </button>
-
-    <h2 id="participateTitle">
-      Teilnehmen
-    </h2>
-
-    <p
-      id="participateText"
-      style="color:#b8bdd8;line-height:1.5;">
-      Möchtest du an diesem Gewinnspiel teilnehmen?
-    </p>
-
-    <button
-      class="btn"
-      onclick="confirmParticipation()">
-      Teilnahme bestätigen
-    </button>
-
-    <button
-      class="btn-secondary"
-      onclick="closeParticipate()">
-      Abbrechen
-    </button>
-
-  </div>
-
-</div>
-
-
-<div id="toast"></div>
-
-
-<script>
-
-  /*
-   * DEINE 9 BILDER
-   */
-
-  const contests = [
-
-    {
-      id: 1,
-      title: "Apple AirPods",
-      description:
-        "Gewinne hochwertige Apple AirPods.",
-      price: "249 €",
-      image: "Assets/airpods.jpg"
-    },
-
-    {
-      id: 2,
-      title: "MacBook",
-      description:
-        "Ein leistungsstarkes MacBook wartet auf dich.",
-      price: "1.499 €",
-      image: "Assets/macbook.jpg"
-    },
-
-    {
-      id: 3,
-      title: "PlayStation 5",
-      description:
-        "Erlebe Gaming mit einer modernen PlayStation 5.",
-      price: "549 €",
-      image: "Assets/ps5.jpg"
-    },
-
-    {
-      id: 4,
-      title: "Premium Watch",
-      description:
-        "Eine elegante Smartwatch für deinen Alltag.",
-      price: "499 €",
-      image: "Assets/watch.jpg"
-    },
-
-    {
-      id: 5,
-      title: "AirPods Gewinnerpreis",
-      description:
-        "Ein weiterer hochwertiger AirPods Gewinn.",
-      price: "249 €",
-      image: "Assets/winner-airpods.jpg"
-    },
-
-    {
-      id: 6,
-      title: "MacBook Gewinnerpreis",
-      description:
-        "Mit etwas Glück gehört dieses MacBook dir.",
-      price: "1.499 €",
-      image: "Assets/winner-mac.jpg"
-    },
-
-    {
-      id: 7,
-      title: "Smartphone",
-      description:
-        "Gewinne ein hochwertiges Premium-Smartphone.",
-      price: "1.299 €",
-      image: "Assets/winner-phone.jpg"
-    },
-
-    {
-      id: 8,
-      title: "Premium Watch Gewinnerpreis",
-      description:
-        "Eine hochwertige Uhr als besonderer Gewinn.",
-      price: "499 €",
-      image: "Assets/winner-watch.jpg"
-    },
-
-    {
-      id: 9,
-      title: "Premium Smartphone",
-      description:
-        "Unser großes Smartphone-Gewinnspiel.",
-      price: "1.299 €",
-      image: "Assets/hero-phone.jpg"
-    }
-
-  ];
-
-
-  let selectedContest = null;
-
-
-  /*
-   * GEWINNSPIELE ANZEIGEN
-   */
-
-  function renderContests() {
-
-    const grid =
-      document.getElementById("contestGrid");
-
-    grid.innerHTML = "";
-
-
-    contests.forEach(contest => {
-
-      const card =
-        document.createElement("div");
-
-      card.className = "card";
-
-
-      card.innerHTML = `
-
-        <img
-          src="${contest.image}"
-          alt="${contest.title}">
-
+    <div class="contest-grid">
+      <article class="card">
+        <img src="Assets/airpods.jpg" alt="AirPods">
         <div class="card-content">
-
-          <div class="badge">
-            🎁 Gewinnspiel
+          <span class="badge">Elektronik</span>
+          <h3>AirPods gewinnen</h3>
+          <p>Gewinne ein Paar hochwertige AirPods.</p>
+          <div class="card-footer">
+            <span>🎁 1 Gewinner</span>
+            <button class="btn-primary" onclick="participate('AirPods')">
+              Teilnehmen
+            </button>
           </div>
-
-          <h3>
-            ${contest.title}
-          </h3>
-
-          <p>
-            ${contest.description}
-          </p>
-
-          <div class="price">
-            ${contest.price}
-          </div>
-
-          <button
-            class="btn"
-            onclick="openParticipate(${contest.id})">
-
-            Jetzt teilnehmen
-
-          </button>
-
         </div>
-
-      `;
-
-
-      grid.appendChild(card);
-
-    });
-
+      </article>
+      <article class="card">
+        <img src="Assets/macbook.jpg" alt="MacBook">
+        <div class="card-content">
+          <span class="badge">Apple</span>
+          <h3>MacBook gewinnen</h3>
+          <p>Mit etwas Glück gehört ein MacBook dir.</p>
+          <div class="card-footer">
+            <span>🎁 1 Gewinner</span>
+            <button class="btn-primary" onclick="participate('MacBook')">
+              Teilnehmen
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <img src="Assets/ps5.jpg" alt="PlayStation 5">
+        <div class="card-content">
+          <span class="badge">Gaming</span>
+          <h3>PlayStation 5 gewinnen</h3>
+          <p>Hol dir die Chance auf eine PS5.</p>
+          <div class="card-footer">
+            <span>🎮 1 Gewinner</span>
+            <button class="btn-primary" onclick="participate('PlayStation 5')">
+              Teilnehmen
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <img src="Assets/watch.jpg" alt="Smartwatch">
+        <div class="card-content">
+          <span class="badge">Lifestyle</span>
+          <h3>Smartwatch gewinnen</h3>
+          <p>Eine moderne Smartwatch wartet auf dich.</p>
+          <div class="card-footer">
+            <span>⌚ 1 Gewinner</span>
+            <button class="btn-primary" onclick="participate('Smartwatch')">
+              Teilnehmen
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <img src="Assets/winner-phone.jpg" alt="Smartphone">
+        <div class="card-content">
+          <span class="badge">Smartphone</span>
+          <h3>Smartphone gewinnen</h3>
+          <p>Mach mit und gewinne ein modernes Smartphone.</p>
+          <div class="card-footer">
+            <span>📱 1 Gewinner</span>
+            <button class="btn-primary" onclick="participate('Smartphone')">
+              Teilnehmen
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <img src="Assets/winner-airpods.jpg" alt="AirPods Gewinner">
+        <div class="card-content">
+          <span class="badge">Gewinnspiel</span>
+          <h3>Premium Kopfhörer</h3>
+          <p>Eine weitere Chance auf hochwertige Kopfhörer.</p>
+          <div class="card-footer">
+            <span>🎧 1 Gewinner</span>
+            <button class="btn-primary" onclick="participate('Premium Kopfhörer')">
+              Teilnehmen
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <img src="Assets/winner-mac.jpg" alt="MacBook Gewinner">
+        <div class="card-content">
+          <span class="badge">Apple</span>
+          <h3>Apple Gewinnspiel</h3>
+          <p>Gewinne einen attraktiven Apple-Preis.</p>
+          <div class="card-footer">
+            <span>🍎 1 Gewinner</span>
+            <button class="btn-primary" onclick="participate('Apple Preis')">
+              Teilnehmen
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <img src="Assets/winner-watch.jpg" alt="Smartwatch Gewinner">
+        <div class="card-content">
+          <span class="badge">Lifestyle</span>
+          <h3>Smartwatch Spezial</h3>
+          <p>Jetzt kostenlos am Gewinnspiel teilnehmen.</p>
+          <div class="card-footer">
+            <span>⌚ 1 Gewinner</span>
+            <button class="btn-primary" onclick="participate('Smartwatch Spezial')">
+              Teilnehmen
+            </button>
+          </div>
+        </div>
+      </article>
+      <article class="card">
+        <img src="Assets/winner-phone.jpg" alt="Telefon">
+        <div class="card-content">
+          <span class="badge">Technik</span>
+          <h3>Technik-Gewinnspiel</h3>
+          <p>Eine weitere Chance auf einen tollen Technikpreis.</p>
+          <div class="card-footer">
+            <span>📱 1 Gewinner</span>
+            <button class="btn-primary" onclick="participate('Technik-Gewinnspiel')">
+              Teilnehmen
+            </button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="section">
+    <div class="section-title">
+      <h2>Häufige Fragen</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Ist die Teilnahme kostenlos?</summary>
+        <p>
+          Ja. Die Teilnahme an den Gewinnspielen auf dieser Webseite
+          ist kostenlos.
+        </p>
+      </details>
+      <details>
+        <summary>Wie kann ich teilnehmen?</summary>
+        <p>
+          Registriere dich zunächst und klicke anschließend beim
+          gewünschten Gewinnspiel auf „Teilnehmen“.
+        </p>
+      </details>
+      <details>
+        <summary>Wie erfahre ich, ob ich gewonnen habe?</summary>
+        <p>
+          Bei einem echten Gewinnspiel sollte die Gewinnbenachrichtigung
+          über die dafür angegebene Kontaktmöglichkeit erfolgen.
+        </p>
+      </details>
+    </div>
+  </section>
+</main>
+<footer>
+  <p>© 2026 Zieh-Los.de – Gewinnspiele</p>
+</footer>
+<!-- LOGIN -->
+<div class="modal" id="loginModal">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal('loginModal')">
+      ×
+    </button>
+    <h2>Anmelden</h2>
+    <div class="form-group">
+      <label>E-Mail</label>
+      <input type="email" id="loginEmail">
+    </div>
+    <div class="form-group">
+      <label>Passwort</label>
+      <input type="password" id="loginPassword">
+    </div>
+    <div class="form-actions">
+      <button class="btn-primary" onclick="login()">
+        Anmelden
+      </button>
+      <button class="btn-secondary" onclick="closeModal('loginModal')">
+        Abbrechen
+      </button>
+    </div>
+    <div class="message" id="loginMessage"></div>
+  </div>
+</div>
+<!-- REGISTRIERUNG -->
+<div class="modal" id="registerModal">
+  <div class="modal-box">
+    <button class="close" onclick="closeModal('registerModal')">
+      ×
+    </button>
+    <h2>Registrieren</h2>
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" id="registerName">
+    </div>
+    <div class="form-group">
+      <label>E-Mail</label>
+      <input type="email" id="registerEmail">
+    </div>
+    <div class="form-group">
+      <label>Passwort</label>
+      <input type="password" id="registerPassword">
+    </div>
+    <div class="form-actions">
+      <button class="btn-primary" onclick="register()">
+        Registrieren
+      </button>
+      <button class="btn-secondary" onclick="closeModal('registerModal')">
+        Abbrechen
+      </button>
+    </div>
+    <div class="message" id="registerMessage"></div>
+  </div>
+</div>
+<script>
+  function openModal(id) {
+    document.getElementById(id).classList.add("active");
   }
-
-
-  /*
-   * LOGIN ÖFFNEN
-   */
-
-  function openLogin() {
-
-    document
-      .getElementById("loginModal")
-      .classList.add("active");
-
+  function closeModal(id) {
+    document.getElementById(id).classList.remove("active");
   }
-
-
-  /*
-   * LOGIN SCHLIESSEN
-   */
-
-  function closeLogin() {
-
-    document
-      .getElementById("loginModal")
-      .classList.remove("active");
-
-  }
-
-
-  /*
-   * TEILNAHME ÖFFNEN
-   */
-
-  function openParticipate(id) {
-
-    selectedContest =
-      contests.find(
-        contest => contest.id === id
-      );
-
-
-    if (!selectedContest) {
-      return;
-    }
-
-
-    document
-      .getElementById("participateTitle")
-      .textContent =
-      selectedContest.title;
-
-
-    document
-      .getElementById("participateText")
-      .textContent =
-      "Möchtest du an diesem Gewinnspiel teilnehmen?";
-
-
-    document
-      .getElementById("participateModal")
-      .classList.add("active");
-
-  }
-
-
-  /*
-   * TEILNAHME SCHLIESSEN
-   */
-
-  function closeParticipate() {
-
-    document
-      .getElementById("participateModal")
-      .classList.remove("active");
-
-    selectedContest = null;
-
-  }
-
-
-  /*
-   * TEILNAHME BESTÄTIGEN
-   */
-
-  function confirmParticipation() {
-
-    if (!selectedContest) {
-      return;
-    }
-
-
-    let participated =
-      JSON.parse(
-        localStorage.getItem("participated") || "[]"
-      );
-
-
-    if (
-      participated.includes(
-        selectedContest.id
-      )
-    ) {
-
-      toast(
-        "Du hast bereits teilgenommen."
-      );
-
-      closeParticipate();
-
-      return;
-
-    }
-
-
-    participated.push(
-      selectedContest.id
-    );
-
-
-    localStorage.setItem(
-      "participated",
-      JSON.stringify(participated)
-    );
-
-
-    const title =
-      selectedContest.title;
-
-
-    closeParticipate();
-
-
-    toast(
-      "🎉 Teilnahme erfolgreich bei „" +
-      title +
-      "“!"
-    );
-
-  }
-
-
-  /*
-   * ANMELDEN
-   */
-
-  function login() {
-
-    const email =
-      document
-        .getElementById("email")
-        .value
-        .trim();
-
-
-    const password =
-      document
-        .getElementById("password")
-        .value
-        .trim();
-
-
-    if (!email || !password) {
-
-      toast(
-        "Bitte E-Mail und Passwort eingeben."
-      );
-
-      return;
-
-    }
-
-
-    localStorage.setItem(
-      "user",
-      email
-    );
-
-
-    closeLogin();
-
-
-    toast(
-      "Willkommen zurück!"
-    );
-
-  }
-
-
-  /*
-   * REGISTRIEREN
-   */
-
   function register() {
-
+    const name =
+      document.getElementById("registerName").value.trim();
     const email =
-      document
-        .getElementById("email")
-        .value
-        .trim();
-
-
+      document.getElementById("registerEmail").value.trim();
     const password =
-      document
-        .getElementById("password")
-        .value
-        .trim();
-
-
-    if (!email || !password) {
-
-      toast(
-        "Bitte E-Mail und Passwort eingeben."
-      );
-
+      document.getElementById("registerPassword").value;
+    const message =
+      document.getElementById("registerMessage");
+    if (!name || !email || !password) {
+      message.textContent =
+        "Bitte fülle alle Felder aus.";
+      message.style.display = "block";
       return;
-
     }
-
-
     localStorage.setItem(
-      "user",
-      email
+      "ziehLosUser",
+      JSON.stringify({
+        name: name,
+        email: email,
+        password: password
+      })
     );
-
-
-    closeLogin();
-
-
-    toast(
-      "🎉 Konto wurde erstellt!"
-    );
-
+    message.textContent =
+      "Registrierung erfolgreich! Du kannst dich jetzt anmelden.";
+    message.style.display = "block";
+    setTimeout(function() {
+      closeModal("registerModal");
+      openModal("loginModal");
+    }, 1000);
   }
-
-
-  /*
-   * MELDUNG
-   */
-
-  function toast(message) {
-
-    const element =
-      document.getElementById("toast");
-
-
-    element.textContent =
-      message;
-
-
-    element.style.display =
-      "block";
-
-
-    setTimeout(() => {
-
-      element.style.display =
-        "none";
-
-    }, 3000);
-
-  }
-
-
-  /*
-   * ZU EINEM BEREICH SCROLLEN
-   */
-
-  function showSection(id) {
-
-    const section =
-      document.getElementById(id);
-
-
-    if (section) {
-
-      section.scrollIntoView({
-        behavior: "smooth"
-      });
-
+  function login() {
+    const email =
+      document.getElementById("loginEmail").value.trim();
+    const password =
+      document.getElementById("loginPassword").value;
+    const message =
+      document.getElementById("loginMessage");
+    const user =
+      JSON.parse(localStorage.getItem("ziehLosUser") || "null");
+    if (!user) {
+      message.textContent =
+        "Bitte registriere dich zuerst.";
+      message.style.display = "block";
+      return;
     }
-
+    if (
+      email === user.email &&
+      password === user.password
+    ) {
+      localStorage.setItem(
+        "ziehLosLoggedIn",
+        "true"
+      );
+      message.textContent =
+        "Erfolgreich angemeldet!";
+      message.style.display = "block";
+      setTimeout(function() {
+        closeModal("loginModal");
+      }, 800);
+    } else {
+      message.textContent =
+        "E-Mail oder Passwort ist falsch.";
+      message.style.display = "block";
+    }
   }
-
-
-  /*
-   * START
-   */
-
-  renderContests();
-
+  function participate(contest) {
+    const loggedIn =
+      localStorage.getItem("ziehLosLoggedIn");
+    if (loggedIn !== "true") {
+      alert(
+        "Bitte registriere dich zuerst und melde dich an."
+      );
+      openModal("loginModal");
+      return;
+    }
+    let participations =
+      JSON.parse(
+        localStorage.getItem("ziehLosParticipations") || "[]"
+      );
+    if (participations.includes(contest)) {
+      alert(
+        "Du hast bereits an diesem Gewinnspiel teilgenommen."
+      );
+      return;
+    }
+    participations.push(contest);
+    localStorage.setItem(
+      "ziehLosParticipations",
+      JSON.stringify(participations)
+    );
+    alert(
+      "🎉 Deine Teilnahme an „" +
+      contest +
+      "“ wurde gespeichert!"
+    );
+  }
+  window.addEventListener("click", function(event) {
+    if (event.target.classList.contains("modal")) {
+      event.target.classList.remove("active");
+    }
+  });
 </script>
-
 </body>
 </html>
