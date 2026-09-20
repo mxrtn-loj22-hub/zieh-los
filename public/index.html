@@ -1,80 +1,1000 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Zieh-Los.de – Gewinnspiele</title>
-<style>
-:root{--bg:#020817;--panel:#071a35;--panel2:#0a2346;--line:#143f73;--blue:#1aa7ff;--violet:#7250ff;--cyan:#6de3ff;--text:#f8fbff;--muted:#91a8c8;--green:#25db8a;--red:#ef5673}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--text);background:radial-gradient(circle at 50% -10%,#16437e 0,transparent 35%),linear-gradient(180deg,#020817,#031127 55%,#020817);font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,sans-serif}button,input{font:inherit}button{cursor:pointer}a{text-decoration:none;color:inherit}
-.wrap{width:min(1280px,calc(100% - 28px));margin:auto}.header{position:sticky;top:0;z-index:90;background:#020817dd;backdrop-filter:blur(18px);border-bottom:1px solid #174777}.nav{height:64px;display:flex;align-items:center;gap:28px}.logo{font-weight:950;display:flex;align-items:center;gap:9px}.logo i{width:29px;height:29px;border-radius:9px;display:grid;place-items:center;background:linear-gradient(135deg,#20d7ff,#6948ff);font-style:normal;box-shadow:0 0 28px #238eff77}.links{display:flex;gap:24px;flex:1;color:#b9c9df;font-size:12px}.links a:hover{color:#fff}.actions{display:flex;gap:8px}.btn{border:1px solid #245a91;background:#092345;color:#fff;border-radius:9px;padding:10px 15px;font-size:11px;font-weight:850;transition:.2s}.btn:hover{transform:translateY(-2px);border-color:#4fc6ff;box-shadow:0 8px 24px #0006}.primary{background:linear-gradient(135deg,#128eff,#744eff);border-color:#6ba9ff}
-.hero{position:relative;min-height:570px;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;align-items:center;border-bottom:1px solid var(--line)}.hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 68% 50%,#188eff35,transparent 30%),radial-gradient(circle at 25% 30%,#7650ff1f,transparent 28%)}.copy{position:relative;z-index:2;padding:55px 0}.eyebrow{display:inline-block;padding:7px 12px;border:1px solid #178fff;background:#0b3971;border-radius:999px;color:#83dcff;font-size:10px;font-weight:900}.hero h1{font-size:clamp(46px,6vw,78px);line-height:.88;letter-spacing:-.065em;margin:20px 0}.grad{background:linear-gradient(90deg,#fff,#5bcfff,#7185ff);-webkit-background-clip:text;color:transparent}.copy p{color:#b6c6dc;line-height:1.6;font-size:14px;max-width:540px}.checks{display:flex;gap:18px;flex-wrap:wrap;margin:22px 0;font-size:10px;color:#dce8f7}.check{display:flex;gap:6px;align-items:center}.check i{font-style:normal;width:17px;height:17px;border-radius:50%;display:grid;place-items:center;background:#075f9a;color:#7de0ff}
-.hero-art{position:relative;height:500px;display:grid;place-items:center}.hero-art:before{content:"";position:absolute;width:370px;height:370px;border-radius:50%;border:2px solid #48bfff88;box-shadow:0 0 70px #168eff55,inset 0 0 60px #168eff22;animation:spin 18s linear infinite}.hero-art:after{content:"";position:absolute;width:300px;height:300px;border-radius:50%;border:1px solid #8a64ff55;animation:spin 11s linear reverse infinite}.hero-img{position:relative;z-index:2;width:340px;height:390px;object-fit:cover;border-radius:35px;filter:saturate(1.1);mix-blend-mode:screen;transform:rotate(-5deg);animation:float 4.8s ease-in-out infinite}.hero-prize{position:absolute;right:3%;bottom:70px;z-index:4;background:#082b53ed;border:1px solid #32b7ff99;border-radius:12px;padding:12px 15px;box-shadow:0 20px 50px #0008;font-size:10px}.hero-prize strong{display:block;font-size:17px;margin:3px 0}.timer{margin-top:20px;width:390px;max-width:100%;background:#06182fe8;border:1px solid #164a80;border-radius:11px;padding:11px}.timer small{font-size:8px;color:#7894b7}.timer-row{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-top:7px}.time{background:#071f40;border:1px solid #154373;border-radius:7px;text-align:center;padding:7px}.time b{font-size:19px}.time span{display:block;font-size:8px;color:#7894b6}
-.strip{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid var(--line)}.feature{padding:14px 16px;display:flex;gap:9px;align-items:center;border-right:1px solid #12375f;background:#04132a}.feature:last-child{border-right:0}.feature i{width:30px;height:30px;border-radius:50%;background:#0a3c75;display:grid;place-items:center;color:#6edaff;font-style:normal}.feature b{display:block;font-size:10px}.feature span{font-size:8px;color:#7894b5}
-.section{padding:38px 0}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:16px}.section h2{font-size:25px;margin:0}.section-head p{color:#7893b5;font-size:10px;margin:4px 0 0}
-.filters{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:15px}.filter{padding:8px 11px;border-radius:99px;border:1px solid #194676;background:#061a34;color:#91a9c7;font-size:9px}.filter.active{color:#fff;border-color:#3ebaff;background:#0b3566}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:13px}.contest{position:relative;overflow:hidden;background:linear-gradient(180deg,#092348,#05142b);border:1px solid #154575;border-radius:14px;transition:.28s;box-shadow:0 10px 35px #0004}.contest:hover{transform:translateY(-5px);border-color:#2eb7ff;box-shadow:0 18px 50px #0007}.contest-image{height:205px;position:relative;overflow:hidden;background:#06172d}.contest-image img{width:100%;height:100%;object-fit:cover;transition:.5s;filter:saturate(1.08)}.contest:hover .contest-image img{transform:scale(1.07)}.badge{position:absolute;top:11px;left:11px;background:#071c3ddd;border:1px solid #2aafff99;border-radius:99px;padding:5px 8px;font-size:8px;color:#8ee0ff;font-weight:900}.heart{position:absolute;right:11px;top:11px;width:31px;height:31px;border-radius:50%;border:1px solid #3d6c9c;background:#061a35d9;color:#fff}.heart.active{background:#d93f68;border-color:#ff7190}.contest-body{padding:14px}.contest h3{margin:0 0 4px;font-size:17px}.subtitle{font-size:10px;color:#829abd}.price{font-size:20px;font-weight:950;margin:10px 0}.meta{display:flex;gap:12px;color:#7d96b7;font-size:8px;margin-bottom:12px}.progress{height:5px;background:#0c2546;border-radius:99px;overflow:hidden}.progress span{display:block;height:100%;background:linear-gradient(90deg,#16a7ff,#744fff);border-radius:99px}.contest-actions{display:flex;gap:7px;margin-top:12px}.contest-actions .btn{flex:1;text-align:center}
-.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.step{background:#06182f;border:1px solid #123b6b;border-radius:11px;padding:17px}.step i{width:37px;height:37px;border-radius:11px;background:#0b3d75;display:grid;place-items:center;font-style:normal;color:#70ddff}.step h3{font-size:12px;margin:11px 0 4px}.step p{font-size:9px;color:#8299b8;line-height:1.5;margin:0}
-.account{display:grid;grid-template-columns:1fr 1fr;gap:14px}.panel{background:#06182f;border:1px solid #123b6b;border-radius:13px;padding:20px}.panel h3{margin:0 0 7px;font-size:16px}.panel p{font-size:10px;color:#8299b8;line-height:1.5}.profile{display:flex;gap:13px;align-items:center}.avatar{width:55px;height:55px;border-radius:50%;background:linear-gradient(135deg,#168fff,#744fff);display:grid;place-items:center;font-weight:950;font-size:18px}
-.entries{display:grid;gap:7px;margin-top:12px}.entry{display:flex;justify-content:space-between;gap:10px;padding:9px;border:1px solid #123b6b;background:#071d39;border-radius:8px;font-size:9px}.entry small{color:#7894b5}
-.faq{display:grid;grid-template-columns:1fr 1fr;gap:8px}.faq-item{border:1px solid #123b6b;background:#06182f;border-radius:9px;overflow:hidden}.faq-q{width:100%;padding:12px;background:none;border:0;color:#fff;text-align:left;font-size:10px;display:flex;justify-content:space-between}.faq-a{display:none;padding:0 12px 12px;color:#8299b8;font-size:9px;line-height:1.6}.faq-item.open .faq-a{display:block}
-.footer{padding:35px 0;color:#7188a8;border-top:1px solid #10365e;font-size:9px}.footer-row{display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-.modal{position:fixed;inset:0;background:#000c;backdrop-filter:blur(10px);z-index:100;display:none;place-items:center;padding:20px}.modal.show{display:grid}.modal-box{width:min(440px,100%);background:#071a35;border:1px solid #24649e;border-radius:14px;padding:22px;box-shadow:0 25px 100px #000}.modal-head{display:flex;justify-content:space-between;align-items:center}.modal h2{margin:0;font-size:21px}.close{background:none;border:0;color:#91a8c8;font-size:22px}.tabs{display:flex;gap:5px;margin:16px 0}.auth-tab{flex:1;padding:9px;border:1px solid #194777;background:#06172e;color:#91a8c8;border-radius:7px;font-size:10px}.auth-tab.active{color:#fff;border-color:#35b8ff;background:#0a3566}.field{margin:9px 0}.field label{display:block;font-size:9px;color:#8ca4c3;margin-bottom:4px}.field input{width:100%;padding:10px;border-radius:8px;border:1px solid #194878;background:#041127;color:#fff;outline:none}.field input:focus{border-color:#35b8ff}.notice{padding:9px;border-radius:8px;font-size:9px;margin-bottom:8px;display:none}.notice.error{display:block;background:#3b1422;border:1px solid #a63854;color:#ff9ab0}.notice.ok{display:block;background:#0a3426;border:1px solid #1c9c6b;color:#8df0bf}
-.toast{position:fixed;right:17px;bottom:17px;z-index:120;background:#092b53;border:1px solid #35baff;padding:11px 14px;border-radius:9px;display:none;font-size:10px;box-shadow:0 18px 45px #0008}.toast.show{display:block;animation:toast .25s ease-out}
-.confetti{position:fixed;inset:0;pointer-events:none;z-index:130;overflow:hidden}.confetti i{position:absolute;width:7px;height:13px;top:-20px;animation:fall 1.7s linear forwards}
-.empty{padding:30px;text-align:center;color:#7e96b5;border:1px dashed #194676;border-radius:12px;font-size:10px}
-.hidden{display:none!important}
-@keyframes float{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-12px) rotate(-3deg)}}@keyframes spin{to{transform:rotate(360deg)}}@keyframes toast{from{transform:translateY(10px);opacity:0}to{transform:none;opacity:1}}@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
-@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:760px}.copy{padding-top:45px}.hero-art{height:390px}.grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.account{grid-template-columns:1fr}.strip{grid-template-columns:1fr 1fr}.links{display:none}}
-@media(max-width:560px){.wrap{width:calc(100% - 18px)}.hero{min-height:700px}.hero h1{font-size:52px}.hero-art{height:310px}.hero-img{width:245px;height:280px}.hero-art:before{width:260px;height:260px}.hero-prize{right:0;bottom:12px}.timer{width:100%}.grid,.steps,.faq{grid-template-columns:1fr}.strip{grid-template-columns:1fr}.actions .btn:first-child{display:none}.nav{height:58px}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Zieh-Los.de – Gewinnspiele</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #080b20;
+      color: white;
+      min-height: 100vh;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(8, 11, 32, 0.96);
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      padding: 18px 6%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 800;
+      color: #8b7cff;
+    }
+
+    nav {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      border: 0;
+      border-radius: 10px;
+      padding: 11px 16px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn {
+      background: #7467ff;
+      color: white;
+    }
+
+    .btn:hover {
+      background: #8d82ff;
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,.1);
+      color: white;
+    }
+
+    .hero {
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 6%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 70px);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span {
+      color: #8b7cff;
+    }
+
+    .hero p {
+      color: #b8bdd8;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 25px;
+    }
+
+    .hero-img {
+      width: 100%;
+      max-height: 430px;
+      object-fit: cover;
+      border-radius: 25px;
+      box-shadow: 0 25px 70px rgba(0,0,0,.5);
+    }
+
+    section {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 6%;
+    }
+
+    .section-title {
+      font-size: 34px;
+      margin-bottom: 25px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: #111631;
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 10px 35px rgba(0,0,0,.25);
+    }
+
+    .card img {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-content {
+      padding: 20px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 21px;
+    }
+
+    .card p {
+      color: #aeb4d0;
+      line-height: 1.5;
+      margin-bottom: 15px;
+    }
+
+    .price {
+      color: #8b7cff;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 10px;
+      background: rgba(116,103,255,.15);
+      color: #a59cff;
+      border-radius: 8px;
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .faq {
+      display: grid;
+      gap: 12px;
+    }
+
+    details {
+      background: #111631;
+      padding: 18px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.08);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    details p {
+      color: #b8bdd8;
+      line-height: 1.6;
+      padding-top: 12px;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 35px 6%;
+      text-align: center;
+      color: #8f95b5;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 999;
+      background: rgba(0,0,0,.75);
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-box {
+      width: 100%;
+      max-width: 480px;
+      background: #111631;
+      border-radius: 20px;
+      padding: 28px;
+      position: relative;
+      box-shadow: 0 25px 80px rgba(0,0,0,.5);
+    }
+
+    .close {
+      position: absolute;
+      top: 12px;
+      right: 15px;
+      background: transparent;
+      color: white;
+      font-size: 25px;
+    }
+
+    input {
+      width: 100%;
+      padding: 13px;
+      margin: 8px 0;
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 10px;
+      background: #080b20;
+      color: white;
+    }
+
+    .modal-box h2 {
+      margin-bottom: 15px;
+    }
+
+    .modal-box button {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    #toast {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 2000;
+      background: #151a38;
+      border: 1px solid rgba(255,255,255,.1);
+      color: white;
+      padding: 15px 18px;
+      border-radius: 12px;
+      display: none;
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+      header {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 35px;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<header class="header"><nav class="wrap nav"><a class="logo" href="#start"><i>✦</i>Zieh-Los.de</a><div class="links"><a href="#start">Startseite</a><a href="#spiele">Gewinnspiele</a><a href="#konto">Mein Konto</a><a href="#faq">FAQ</a></div><div class="actions"><button class="btn" id="loginBtn">Login</button><button class="btn primary" id="registerBtn">Registrieren</button></div></nav></header>
 
-<main id="start">
-<section class="wrap hero">
-<div class="copy"><span class="eyebrow">DIE GROSSE GEWINNCHANCE</span><h1>Dein <span class="grad">Los.</span><br>Dein <span class="grad">Moment.</span></h1><p>Entdecke verschiedene Gewinnspiele, sichere dir deine Losnummer und verfolge deine Teilnahmen direkt in deinem Konto.</p><div class="checks"><span class="check"><i>✓</i>Transparente Auswahl</span><span class="check"><i>✓</i>Sichere Demo-Teilnahme</span><span class="check"><i>✓</i>Premium-Gewinne</span></div><a class="btn primary" href="#spiele">Gewinnspiele entdecken →</a><div class="timer"><small>NÄCHSTE DEMO-ZIEHUNG</small><div class="timer-row"><div class="time"><b id="d">02</b><span>Tage</span></div><div class="time"><b id="h">14</b><span>Std</span></div><div class="time"><b id="m">32</b><span>Min</span></div><div class="time"><b id="s">18</b><span>Sek</span></div></div></div></div>
-<div class="hero-art"><img class="hero-img" src="assets/hero-phone.jpg" alt="Premium Smartphone Gewinn"><div class="hero-prize">AKTUELLER TOP-PREIS<strong>iPhone 18 Pro Max</strong>256 GB · Blau · 1.599 €</div></div>
-</section>
-<div class="wrap strip"><div class="feature"><i>✦</i><div><b>Premium-Gewinne</b><span>Technik, Gaming, Reisen & mehr</span></div></div><div class="feature"><i>◎</i><div><b>Transparente Auswahl</b><span>Losnummern direkt im Browser</span></div></div><div class="feature"><i>✓</i><div><b>Mein Konto</b><span>Teilnahmen jederzeit abrufbar</span></div></div><div class="feature"><i>⚡</i><div><b>Live-Interaktionen</b><span>Animationen & Sofortfeedback</span></div></div></div>
+<header>
 
-<section class="wrap section" id="spiele"><div class="section-head"><div><h2>Aktuelle Gewinnspiele</h2><p>Wähle dein Gewinnspiel und sichere dir eine verfügbare Losnummer.</p></div></div><div class="filters" id="filters"></div><div class="grid" id="contestGrid"></div></section>
+  <div class="logo">
+    Zieh-Los.de
+  </div>
 
-<section class="wrap section"><div class="section-head"><div><h2>So funktioniert's</h2><p>Vom Gewinnspiel bis zur persönlichen Teilnahmeübersicht.</p></div></div><div class="steps"><div class="step"><i>1</i><h3>Gewinnspiel wählen</h3><p>Stöbere durch verschiedene Kategorien und Preise.</p></div><div class="step"><i>2</i><h3>Losnummer auswählen</h3><p>Wähle eine freie Nummer aus und bestätige deine Teilnahme.</p></div><div class="step"><i>3</i><h3>Teilnahme speichern</h3><p>Deine Teilnahme wird mit deinem Konto verknüpft.</p></div><div class="step"><i>4</i><h3>Gewinnspiel verfolgen</h3><p>Alle deine Teilnahmen findest du später in deinem Konto.</p></div></div></section>
+  <nav>
+    <button
+      class="btn-secondary"
+      onclick="showSection('gewinnspiele')">
+      Gewinnspiele
+    </button>
 
-<section class="wrap section" id="konto"><div class="section-head"><div><h2>Mein Konto</h2><p>Registrierung und Login funktionieren mit dem lokalen Demo-Backend.</p></div></div><div id="accountArea"></div></section>
+    <button
+      class="btn-secondary"
+      onclick="showSection('faq')">
+      FAQ
+    </button>
 
-<section class="wrap section" id="faq"><div class="section-head"><div><h2>Häufig gestellte Fragen</h2></div></div><div class="faq"><div class="faq-item"><button class="faq-q">Wie registriere ich mich? <span>⌄</span></button><div class="faq-a">Klicke oben auf „Registrieren“, gib Name, E-Mail und ein Passwort ein. Das Demo-Backend speichert dein Konto lokal in data.json.</div></div><div class="faq-item"><button class="faq-q">Kann ich mich später wieder einloggen? <span>⌄</span></button><div class="faq-a">Ja. Die Session wird als Cookie gespeichert. Nach dem Login wird dein Profil wieder geladen.</div></div><div class="faq-item"><button class="faq-q">Kann ich an mehreren Gewinnspielen teilnehmen? <span>⌄</span></button><div class="faq-a">Ja. Du kannst für jedes Gewinnspiel eine verfügbare Losnummer auswählen. Die Teilnahme erscheint anschließend in deinem Konto.</div></div><div class="faq-item"><button class="faq-q">Ist die Zahlung schon angeschlossen? <span>⌄</span></button><div class="faq-a">Nein. Das Projekt ist als funktionierende Gewinnspiel-/Account-Demo aufgebaut. Ein echter Zahlungsanbieter kann später als eigener Schritt integriert werden.</div></div></div></section>
+    <button
+      class="btn"
+      onclick="openLogin()">
+      Anmelden
+    </button>
+  </nav>
+
+</header>
+
+
+<main>
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div>
+
+      <div class="badge">
+        🎁 Große Gewinnspiele
+      </div>
+
+      <h1>
+        Dein Glück.<br>
+        <span>Dein Gewinn.</span>
+      </h1>
+
+      <p>
+        Nimm an unseren Gewinnspielen teil und sichere dir
+        die Chance auf hochwertige Preise.
+      </p>
+
+      <button
+        class="btn"
+        onclick="showSection('gewinnspiele')">
+        Gewinnspiele ansehen
+      </button>
+
+    </div>
+
+    <div>
+
+      <img
+        class="hero-img"
+        src="Assets/hero-phone.jpg"
+        alt="Premium Smartphone Gewinn">
+
+    </div>
+
+  </section>
+
+
+  <!-- GEWINNSPIELE -->
+
+  <section id="gewinnspiele">
+
+    <h2 class="section-title">
+      Aktuelle Gewinnspiele
+    </h2>
+
+    <div
+      class="grid"
+      id="contestGrid">
+    </div>
+
+  </section>
+
+
+  <!-- FAQ -->
+
+  <section id="faq">
+
+    <h2 class="section-title">
+      Häufige Fragen
+    </h2>
+
+    <div class="faq">
+
+      <details>
+
+        <summary>
+          Wie kann ich teilnehmen?
+        </summary>
+
+        <p>
+          Wähle ein Gewinnspiel aus und klicke auf
+          „Jetzt teilnehmen“. Anschließend kannst du
+          deine Teilnahme bestätigen.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Ist die Teilnahme kostenlos?
+        </summary>
+
+        <p>
+          Die Teilnahme an den dargestellten
+          Gewinnspielen ist kostenlos.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Wie erfahre ich, ob ich gewonnen habe?
+        </summary>
+
+        <p>
+          Die Gewinner können nach Ablauf des jeweiligen
+          Gewinnspiels bekannt gegeben werden.
+        </p>
+
+      </details>
+
+
+      <details>
+
+        <summary>
+          Kann ich mehrfach teilnehmen?
+        </summary>
+
+        <p>
+          Pro Gewinnspiel wird in dieser Version nur
+          eine Teilnahme pro Browser gespeichert.
+        </p>
+
+      </details>
+
+    </div>
+
+  </section>
+
 </main>
-<footer class="footer"><div class="wrap footer-row"><div class="logo"><i>✦</i>Zieh-Los.de</div><div>Gewinnspiele · Teilnahmebedingungen · Datenschutz · Impressum</div><div>© 2026 Zieh-Los.de Demo</div></div></footer>
 
-<div class="modal" id="authModal"><div class="modal-box"><div class="modal-head"><h2 id="authTitle">Willkommen zurück</h2><button class="close" id="closeAuth">×</button></div><div class="tabs"><button class="auth-tab active" id="tabLogin">Login</button><button class="auth-tab" id="tabRegister">Registrieren</button></div><div id="authNotice" class="notice"></div><div id="nameField" class="field hidden"><label>Name</label><input id="authName" autocomplete="name" placeholder="Max Mustermann"></div><div class="field"><label>E-Mail</label><input id="authEmail" type="email" autocomplete="email" placeholder="du@beispiel.de"></div><div class="field"><label>Passwort</label><input id="authPassword" type="password" autocomplete="current-password" placeholder="Mindestens 8 Zeichen"></div><button class="btn primary" style="width:100%;margin-top:5px" id="authSubmit">Einloggen</button></div></div>
-<div class="modal" id="ticketModal"><div class="modal-box"><div class="modal-head"><h2 id="ticketTitle">Losnummer wählen</h2><button class="close" id="closeTicket">×</button></div><p id="ticketDesc" style="font-size:10px;color:#8199b9"></p><input class="field" id="ticketSearch" placeholder="Losnummer suchen…" style="width:100%;padding:10px;background:#041127;border:1px solid #194878;color:#fff;border-radius:8px"><div id="ticketGrid" style="display:grid;grid-template-columns:repeat(10,1fr);gap:5px;margin-top:9px"></div><button class="btn primary" id="joinBtn" style="width:100%;margin-top:12px" disabled>Mit Losnummer teilnehmen</button></div></div>
-<div class="toast" id="toast"></div><div class="confetti" id="confetti"></div>
+
+<footer>
+
+  © 2026 Zieh-Los.de – Gewinnspiel-Demo
+
+</footer>
+
+
+<!-- LOGIN -->
+
+<div
+  id="loginModal"
+  class="modal">
+
+  <div class="modal-box">
+
+    <button
+      class="close"
+      onclick="closeLogin()">
+      ×
+    </button>
+
+    <h2>
+      Anmelden
+    </h2>
+
+    <input
+      type="email"
+      id="email"
+      placeholder="E-Mail-Adresse">
+
+    <input
+      type="password"
+      id="password"
+      placeholder="Passwort">
+
+    <button
+      class="btn"
+      onclick="login()">
+      Anmelden
+    </button>
+
+    <button
+      class="btn-secondary"
+      onclick="register()">
+      Konto erstellen
+    </button>
+
+  </div>
+
+</div>
+
+
+<!-- TEILNAHME -->
+
+<div
+  id="participateModal"
+  class="modal">
+
+  <div class="modal-box">
+
+    <button
+      class="close"
+      onclick="closeParticipate()">
+      ×
+    </button>
+
+    <h2 id="participateTitle">
+      Teilnehmen
+    </h2>
+
+    <p
+      id="participateText"
+      style="color:#b8bdd8;line-height:1.5;">
+      Möchtest du an diesem Gewinnspiel teilnehmen?
+    </p>
+
+    <button
+      class="btn"
+      onclick="confirmParticipation()">
+      Teilnahme bestätigen
+    </button>
+
+    <button
+      class="btn-secondary"
+      onclick="closeParticipate()">
+      Abbrechen
+    </button>
+
+  </div>
+
+</div>
+
+
+<div id="toast"></div>
+
 
 <script>
-const state={contests:[],user:null,filter:"Alle",selectedContest:null,selectedTicket:null,favorites:new Set(JSON.parse(localStorage.getItem("zieh-favs")||"[]"))};
-const $=s=>document.querySelector(s);
-const toast=t=>{const x=$("#toast");x.textContent=t;x.classList.add("show");setTimeout(()=>x.classList.remove("show"),2600)};
-async function api(url,opt={}){const r=await fetch(url,{headers:{"Content-Type":"application/json"},...opt});const j=await r.json().catch(()=>({}));if(!r.ok)throw new Error(j.error||"Etwas ist schiefgelaufen.");return j}
-function money(x){return new Intl.NumberFormat("de-DE",{style:"currency",currency:"EUR",maximumFractionDigits:0}).format(Number(x.replace(".","").replace("€","").trim()))}
-function initials(n){return n.split(/\s+/).map(x=>x[0]).slice(0,2).join("").toUpperCase()}
-function renderFilters(){const cats=["Alle",...new Set(state.contests.map(c=>c.category))];$("#filters").innerHTML=cats.map(c=>`<button class="filter ${state.filter===c?"active":""}" data-filter="${c}">${c}</button>`).join("");document.querySelectorAll(".filter").forEach(b=>b.onclick=()=>{state.filter=b.dataset.filter;renderFilters();renderContests()})}
-function renderContests(){const arr=state.filter==="Alle"?state.contests:state.contests.filter(c=>c.category===state.filter);$("#contestGrid").innerHTML=arr.map(c=>{const fav=state.favorites.has(c.id);const pct=Math.min(92,Math.round((c.tickets*.32)/c.tickets*100));return `<article class="contest"><div class="contest-image"><img src="${c.image}" alt="${c.subtitle}"><span class="badge">${c.category}</span><button class="heart ${fav?"active":""}" data-fav="${c.id}">${fav?"♥":"♡"}</button></div><div class="contest-body"><h3>${c.title}</h3><div class="subtitle">${c.subtitle}</div><div class="price">${c.prize}</div><div class="meta"><span>🎟 ${c.tickets} Lose</span><span>⏱ ${c.endHours} Std.</span></div><div class="progress"><span style="width:${pct}%"></span></div><div class="contest-actions"><button class="btn primary join" data-id="${c.id}">Los wählen</button><button class="btn details" data-details="${c.id}">Details</button></div></div></article>`}).join("");document.querySelectorAll("[data-fav]").forEach(b=>b.onclick=()=>{const id=b.dataset.fav;state.favorites.has(id)?state.favorites.delete(id):state.favorites.add(id);localStorage.setItem("zieh-favs",JSON.stringify([...state.favorites]));renderContests()});document.querySelectorAll(".join").forEach(b=>b.onclick=()=>openTickets(b.dataset.id));document.querySelectorAll(".details").forEach(b=>b.onclick=()=>{const c=state.contests.find(x=>x.id===b.dataset.details);toast(`${c.title}: ${c.desc}`)})}
-async function openTickets(id){state.selectedContest=state.contests.find(c=>c.id===id);state.selectedTicket=null;$("#ticketTitle").textContent=state.selectedContest.title;$("#ticketDesc").textContent=`${state.selectedContest.subtitle} · ${state.selectedContest.prize} · Wähle eine freie Nummer.`;$("#ticketModal").classList.add("show");await renderTickets()}
-async function renderTickets(){const c=state.selectedContest;const taken=new Set(await api("/api/taken/"+c.id));const filter=$("#ticketSearch").value.trim();$("#ticketGrid").innerHTML="";for(let i=1;i<=c.tickets;i++){if(filter&&!String(i).includes(filter))continue;const b=document.createElement("button");b.textContent=String(i).padStart(3,"0");b.className="ticket";b.style.cssText="border:1px solid #174675;background:#071d3b;color:#b2c6e0;border-radius:6px;padding:6px 0;font-size:8px";if(taken.has(i)){b.disabled=true;b.style.opacity=".28";b.style.textDecoration="line-through"}else{b.onclick=()=>{state.selectedTicket=i;document.querySelectorAll("#ticketGrid .ticket").forEach(x=>x.style.outline="");b.style.outline="2px solid #55d5ff";$("#joinBtn").disabled=false}}$("#ticketGrid").appendChild(b)}}
-async function join(){if(!state.selectedTicket)return;try{const r=await api("/api/participate",{method:"POST",body:JSON.stringify({contestId:state.selectedContest.id,ticket:state.selectedTicket})});state.user=r.user;$("#ticketModal").classList.remove("show");renderAccount();celebrate();toast("Teilnahme erfolgreich gespeichert!")}catch(e){toast(e.message)}}
-function renderAccount(){const a=$("#accountArea");if(!state.user){a.innerHTML=`<div class="account"><div class="panel"><h3>Noch kein Konto?</h3><p>Registriere dich, um an mehreren Gewinnspielen teilzunehmen und deine Losnummern im Konto zu speichern.</p><button class="btn primary" onclick="openAuth('register')">Kostenlos registrieren</button></div><div class="panel"><h3>Bereits registriert?</h3><p>Logge dich ein und deine bisherigen Demo-Teilnahmen werden geladen.</p><button class="btn" onclick="openAuth('login')">Einloggen</button></div></div>`;return}const entries=state.user.entries||[];a.innerHTML=`<div class="account"><div class="panel"><div class="profile"><div class="avatar">${initials(state.user.name)}</div><div><h3>${state.user.name}</h3><p>${state.user.email}</p></div></div><button class="btn" id="logout" style="margin-top:14px">Ausloggen</button></div><div class="panel"><h3>Meine Teilnahmen (${entries.length})</h3><div class="entries">${entries.length?entries.map(e=>{const c=state.contests.find(x=>x.id===e.contestId);return `<div class="entry"><span><b>${c?.title||e.contestId}</b><br><small>${c?.subtitle||""}</small></span><strong>Los ${String(e.ticket).padStart(3,"0")}</strong></div>`}).join(""):`<div class="empty">Noch keine Teilnahme. Wähle oben ein Gewinnspiel.</div>`}</div></div></div>`;$("#logout").onclick=async()=>{await api("/api/logout",{method:"POST"});state.user=null;renderAccount();toast("Du wurdest ausgeloggt.")}}
-function openAuth(mode="login"){setAuthMode(mode);$("#authModal").classList.add("show")}
-function setAuthMode(mode){const reg=mode==="register";$("#authTitle").textContent=reg?"Konto erstellen":"Willkommen zurück";$("#tabLogin").classList.toggle("active",!reg);$("#tabRegister").classList.toggle("active",reg);$("#nameField").classList.toggle("hidden",!reg);$("#authSubmit").textContent=reg?"Konto erstellen":"Einloggen";$("#authNotice").className="notice";$("#authNotice").textContent=""}
-async function submitAuth(){const reg=$("#tabRegister").classList.contains("active");try{const payload={email:$("#authEmail").value,password:$("#authPassword").value};if(reg)payload.name=$("#authName").value;const r=await api(reg?"/api/register":"/api/login",{method:"POST",body:JSON.stringify(payload)});state.user=r.user;$("#authModal").classList.remove("show");renderAccount();toast(reg?"Konto erfolgreich erstellt!":"Erfolgreich eingeloggt.");document.querySelector("#konto").scrollIntoView({behavior:"smooth"})}catch(e){$("#authNotice").className="notice error";$("#authNotice").textContent=e.message}}
-function celebrate(){const box=$("#confetti");box.innerHTML="";for(let i=0;i<75;i++){const x=document.createElement("i");x.style.left=Math.random()*100+"%";x.style.background=["#20c9ff","#7652ff","#35df91","#fff","#ffcc4d"][i%5];x.style.animationDelay=Math.random()*.5+"s";x.style.transform=`rotate(${Math.random()*360}deg)`;box.appendChild(x)}setTimeout(()=>box.innerHTML="",2200)}
-$("#loginBtn").onclick=()=>openAuth("login");$("#registerBtn").onclick=()=>openAuth("register");$("#closeAuth").onclick=()=>$("#authModal").classList.remove("show");$("#closeTicket").onclick=()=>$("#ticketModal").classList.remove("show");$("#tabLogin").onclick=()=>setAuthMode("login");$("#tabRegister").onclick=()=>setAuthMode("register");$("#authSubmit").onclick=submitAuth;$("#joinBtn").onclick=join;$("#ticketSearch").oninput=renderTickets;
-document.querySelectorAll(".faq-q").forEach(q=>q.onclick=()=>q.parentElement.classList.toggle("open"));
-window.addEventListener("keydown",e=>{if(e.key==="Escape"){document.querySelectorAll(".modal").forEach(x=>x.classList.remove("show"))}});
-const end=Date.now()+((2*86400)+(14*3600)+(32*60)+18)*1000;function tick(){let x=Math.max(0,Math.floor((end-Date.now())/1000)),d=Math.floor(x/86400);x%=86400;let h=Math.floor(x/3600);x%=3600;let m=Math.floor(x/60);x%=60;$("#d").textContent=String(d).padStart(2,"0");$("#h").textContent=String(h).padStart(2,"0");$("#m").textContent=String(m).padStart(2,"0");$("#s").textContent=String(x).padStart(2,"0")}setInterval(tick,1000);tick();
-(async()=>{try{state.contests=await api("/api/contests");const me=await api("/api/me");state.user=me.user;renderFilters();renderContests();renderAccount()}catch(e){toast("Backend nicht erreichbar – starte server.js.")}})();
+
+  /*
+   * DEINE 9 BILDER
+   */
+
+  const contests = [
+
+    {
+      id: 1,
+      title: "Apple AirPods",
+      description:
+        "Gewinne hochwertige Apple AirPods.",
+      price: "249 €",
+      image: "Assets/airpods.jpg"
+    },
+
+    {
+      id: 2,
+      title: "MacBook",
+      description:
+        "Ein leistungsstarkes MacBook wartet auf dich.",
+      price: "1.499 €",
+      image: "Assets/macbook.jpg"
+    },
+
+    {
+      id: 3,
+      title: "PlayStation 5",
+      description:
+        "Erlebe Gaming mit einer modernen PlayStation 5.",
+      price: "549 €",
+      image: "Assets/ps5.jpg"
+    },
+
+    {
+      id: 4,
+      title: "Premium Watch",
+      description:
+        "Eine elegante Smartwatch für deinen Alltag.",
+      price: "499 €",
+      image: "Assets/watch.jpg"
+    },
+
+    {
+      id: 5,
+      title: "AirPods Gewinnerpreis",
+      description:
+        "Ein weiterer hochwertiger AirPods Gewinn.",
+      price: "249 €",
+      image: "Assets/winner-airpods.jpg"
+    },
+
+    {
+      id: 6,
+      title: "MacBook Gewinnerpreis",
+      description:
+        "Mit etwas Glück gehört dieses MacBook dir.",
+      price: "1.499 €",
+      image: "Assets/winner-mac.jpg"
+    },
+
+    {
+      id: 7,
+      title: "Smartphone",
+      description:
+        "Gewinne ein hochwertiges Premium-Smartphone.",
+      price: "1.299 €",
+      image: "Assets/winner-phone.jpg"
+    },
+
+    {
+      id: 8,
+      title: "Premium Watch Gewinnerpreis",
+      description:
+        "Eine hochwertige Uhr als besonderer Gewinn.",
+      price: "499 €",
+      image: "Assets/winner-watch.jpg"
+    },
+
+    {
+      id: 9,
+      title: "Premium Smartphone",
+      description:
+        "Unser großes Smartphone-Gewinnspiel.",
+      price: "1.299 €",
+      image: "Assets/hero-phone.jpg"
+    }
+
+  ];
+
+
+  let selectedContest = null;
+
+
+  /*
+   * GEWINNSPIELE ANZEIGEN
+   */
+
+  function renderContests() {
+
+    const grid =
+      document.getElementById("contestGrid");
+
+    grid.innerHTML = "";
+
+
+    contests.forEach(contest => {
+
+      const card =
+        document.createElement("div");
+
+      card.className = "card";
+
+
+      card.innerHTML = `
+
+        <img
+          src="${contest.image}"
+          alt="${contest.title}">
+
+        <div class="card-content">
+
+          <div class="badge">
+            🎁 Gewinnspiel
+          </div>
+
+          <h3>
+            ${contest.title}
+          </h3>
+
+          <p>
+            ${contest.description}
+          </p>
+
+          <div class="price">
+            ${contest.price}
+          </div>
+
+          <button
+            class="btn"
+            onclick="openParticipate(${contest.id})">
+
+            Jetzt teilnehmen
+
+          </button>
+
+        </div>
+
+      `;
+
+
+      grid.appendChild(card);
+
+    });
+
+  }
+
+
+  /*
+   * LOGIN ÖFFNEN
+   */
+
+  function openLogin() {
+
+    document
+      .getElementById("loginModal")
+      .classList.add("active");
+
+  }
+
+
+  /*
+   * LOGIN SCHLIESSEN
+   */
+
+  function closeLogin() {
+
+    document
+      .getElementById("loginModal")
+      .classList.remove("active");
+
+  }
+
+
+  /*
+   * TEILNAHME ÖFFNEN
+   */
+
+  function openParticipate(id) {
+
+    selectedContest =
+      contests.find(
+        contest => contest.id === id
+      );
+
+
+    if (!selectedContest) {
+      return;
+    }
+
+
+    document
+      .getElementById("participateTitle")
+      .textContent =
+      selectedContest.title;
+
+
+    document
+      .getElementById("participateText")
+      .textContent =
+      "Möchtest du an diesem Gewinnspiel teilnehmen?";
+
+
+    document
+      .getElementById("participateModal")
+      .classList.add("active");
+
+  }
+
+
+  /*
+   * TEILNAHME SCHLIESSEN
+   */
+
+  function closeParticipate() {
+
+    document
+      .getElementById("participateModal")
+      .classList.remove("active");
+
+    selectedContest = null;
+
+  }
+
+
+  /*
+   * TEILNAHME BESTÄTIGEN
+   */
+
+  function confirmParticipation() {
+
+    if (!selectedContest) {
+      return;
+    }
+
+
+    let participated =
+      JSON.parse(
+        localStorage.getItem("participated") || "[]"
+      );
+
+
+    if (
+      participated.includes(
+        selectedContest.id
+      )
+    ) {
+
+      toast(
+        "Du hast bereits teilgenommen."
+      );
+
+      closeParticipate();
+
+      return;
+
+    }
+
+
+    participated.push(
+      selectedContest.id
+    );
+
+
+    localStorage.setItem(
+      "participated",
+      JSON.stringify(participated)
+    );
+
+
+    const title =
+      selectedContest.title;
+
+
+    closeParticipate();
+
+
+    toast(
+      "🎉 Teilnahme erfolgreich bei „" +
+      title +
+      "“!"
+    );
+
+  }
+
+
+  /*
+   * ANMELDEN
+   */
+
+  function login() {
+
+    const email =
+      document
+        .getElementById("email")
+        .value
+        .trim();
+
+
+    const password =
+      document
+        .getElementById("password")
+        .value
+        .trim();
+
+
+    if (!email || !password) {
+
+      toast(
+        "Bitte E-Mail und Passwort eingeben."
+      );
+
+      return;
+
+    }
+
+
+    localStorage.setItem(
+      "user",
+      email
+    );
+
+
+    closeLogin();
+
+
+    toast(
+      "Willkommen zurück!"
+    );
+
+  }
+
+
+  /*
+   * REGISTRIEREN
+   */
+
+  function register() {
+
+    const email =
+      document
+        .getElementById("email")
+        .value
+        .trim();
+
+
+    const password =
+      document
+        .getElementById("password")
+        .value
+        .trim();
+
+
+    if (!email || !password) {
+
+      toast(
+        "Bitte E-Mail und Passwort eingeben."
+      );
+
+      return;
+
+    }
+
+
+    localStorage.setItem(
+      "user",
+      email
+    );
+
+
+    closeLogin();
+
+
+    toast(
+      "🎉 Konto wurde erstellt!"
+    );
+
+  }
+
+
+  /*
+   * MELDUNG
+   */
+
+  function toast(message) {
+
+    const element =
+      document.getElementById("toast");
+
+
+    element.textContent =
+      message;
+
+
+    element.style.display =
+      "block";
+
+
+    setTimeout(() => {
+
+      element.style.display =
+        "none";
+
+    }, 3000);
+
+  }
+
+
+  /*
+   * ZU EINEM BEREICH SCROLLEN
+   */
+
+  function showSection(id) {
+
+    const section =
+      document.getElementById(id);
+
+
+    if (section) {
+
+      section.scrollIntoView({
+        behavior: "smooth"
+      });
+
+    }
+
+  }
+
+
+  /*
+   * START
+   */
+
+  renderContests();
+
 </script>
+
 </body>
 </html>
